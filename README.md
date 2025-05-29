@@ -1,3 +1,10 @@
+**What this App do?**
+# OData Exercise
+
+- Displays a list of products from the **Northwind OData service**.
+- Sorts products by **Product Name** and filters out **discontinued products**.
+- Shows **Product ID**, **Supplier ID**, and **Price** along with unit descriptions.
+
 ## Application Details
 |               |
 | ------------- |
