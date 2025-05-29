@@ -1,6 +1,55 @@
-<mvc:View controllerName="training.odata.odataexercise.controller.ODataExercise"
-    xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
-    </Page>
+<mvc:View
+  controllerName="training.odata.odataexercise.controller.ODataExercise"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:form="sap.ui.layout.form">
+  
+  <Page id="page" title="{i18n>title}">
+       
+    <!-- Subheading for the table -->
+    <Text id="tableSubHeading" text="{i18n>productsSubHeading}" /> <!-- Wide range of available products -->
+    <!-- Table for displaying Products -->
+    <Table id="productTable" items="{/Products}" class="sapUiResponsiveMargin">
+
+      <!-- Header for the Table -->
+      <headerToolbar>
+        <Toolbar id="tbTableHeader">
+          <Title id="tableTitle" text="{i18n>productsTitle}" /> <!-- i18n for table title -->
+        </Toolbar>
+      </headerToolbar>
+
+      <!-- Define Columns -->
+      <columns>
+        <Column id="productColumn">
+          <Text id="productColumnText" text="{i18n>productColumn}" />
+        </Column>
+        <Column id="supplierIdColumn">
+          <Text id="supplierIdColumnText" text="{i18n>supplierIdColumn}" />
+        </Column>
+        <Column id="priceColumn">
+          <Text id="priceColumnText" text="{i18n>priceColumn}" />
+        </Column>
+      </columns>
+
+      <!-- Table Rows -->
+      <items>
+        <ColumnListItem id="productItem">
+          <cells>
+                 <!-- Product Name and Product ID: Product Name is title, and Product ID is text -->
+                 <ObjectIdentifier 
+                    id="productIdentifier" 
+                    title="{ProductName}" 
+                    text="{i18n>productIdLabel} {ProductID}" /> <!-- Bind Product ID label from i18n -->
+          </cells>
+          <cells>
+            <Text id="supplierIdText" text="{SupplierID}" />
+          </cells>
+          <cells>
+            <ObjectIdentifier id="priceIdentifier" title="{UnitPrice}" text="{QuantityPerUnit}" />
+          </cells>
+        </ColumnListItem>
+      </items>
+
+    </Table>
+  </Page>
 </mvc:View>
